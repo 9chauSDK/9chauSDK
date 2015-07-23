@@ -14,7 +14,7 @@
 
 ### I. REGISTRATION
 
-![Alt text](http://i.imgur.com/Yno6fyO.png "I.1 Register sequence diagram")
+![Alt text](http://i.imgur.com/tWkrFfG.png "I.1 Register sequence diagram")
 
 *I.1 Register sequence diagram*
 
