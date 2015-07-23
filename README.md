@@ -75,7 +75,7 @@ After verify data, game server return registration state to 9chau server (1.1.1.
 
 ### II. AUTHENTICATION
 
-![Alt text](http://i.imgur.com/6puCuRq.png "II.1 Authentication sequence diagram")
+![Alt text](http://i.imgur.com/XEFlufH.png "II.1 Authentication sequence diagram")
 
 *II.1 Authentication sequence diagram*
 
@@ -136,7 +136,7 @@ After verify data, game server return authentication state to 9chau server (1.1.
 
 ### III. PAYMENT
 
-![Alt text](http://i.imgur.com/AiROiPl.png "III.1 Payment sequence diagram")
+![Alt text](http://i.imgur.com/vlE6JGX.png "III.1 Payment sequence diagram")
 
 *III.1 Payment sequence diagram*
 
