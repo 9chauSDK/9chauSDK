@@ -1,6 +1,6 @@
 # 9Chau SDK integration for Game
 
-##### Ver. 1.1.0 (22/06/2015)
+##### Ver. 1.1.1 (24/07/2015)
 
 
 
@@ -327,3 +327,15 @@ To show profile, please add this script to profile button: CuuChauSdk.showProfil
     }
 ```
 
+
+
+
+---
+
+
+
+##### Version Log
+- Ver. 1.1.0 (22/06/2015)
+- Ver. 1.1.1 (24/07/2015)
+	- Added: Push Notification
+	- Fixed bugs
