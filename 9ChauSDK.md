@@ -112,14 +112,15 @@ Please make sure development environment and your game meet the following requir
 2.	Update your game app build.grandle by adding dependencies at bottom file:
 
 ```java
-    dependencies {
-        compile fileTree(dir: 'libs', include: ['*.jar'])
-        compile 'com.android.support:appcompat-v7:22.1.1'
-        compile project(':9chauSDK')
-        compile 'com.facebook.android:facebook-android-sdk:4.0.0'
-        compile 'com.mcxiaoke.volley:library:1.0.+'
-    	compile 'com.google.android.gms:play-services:7.5.0'
-    }
+	dependencies {
+		compile fileTree(dir: 'libs', include: ['*.jar'])
+		compile 'com.android.support:appcompat-v7:22.1.1'
+		compile project(':9chauSDK')
+		compile 'com.facebook.android:facebook-android-sdk:4.0.0'
+		compile 'com.mcxiaoke.volley:library:1.0.+'
+		compile 'com.google.android.gms:play-services:7.5.+'
+	}
+
 ```
 
 #### 6.2. Config project 
@@ -141,19 +142,57 @@ Add exact this meta-data into your **AndroidManifest.xml**:
 An Android application cannot have multiple receivers which have the same intent-filtered action. If you want have more than one INSTALL_REFFERER receiver, you must make the proxy receiver like this:
 
 - Remove all INSTALL_REFERRER receiver.
-- Add this receiver into your AndroidManifest.xml
+- Add this receiver into your **AndroidManifest.xml**
 
-    
 ```java
-    <receiver
-        android:name="{your_package_name}.tracking.Install"
-        android:exported="true" >
-        <intent-filter>
-            <action android:name="com.android.vending.INSTALL_REFERRER" />
-        </intent-filter>
-    </receiver>
+	<receiver
+	    android:name="{your_package_name}.tracking.Install"
+	    android:exported="true" >
+	    <intent-filter>
+	        <action android:name="com.android.vending.INSTALL_REFERRER" />
+	    </intent-filter>
+	</receiver>
+	<receiver android:name="com.parse.GcmBroadcastReceiver"
+	    android:permission="com.google.android.c2dm.permission.SEND">
+	    <intent-filter>
+	        <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+	        <action android:name="com.google.android.c2dm.intent.REGISTRATION" />
+	
+	        <category android:name="="{your_package_name}" />
+	    </intent-filter>
+	</receiver>
 ```
     
+- Add this permission to your **AndroidManifest.xml**:
+
+```java
+	<permission android:protectionLevel="signature"   android:name="{your_package_name}.permission.C2D_MESSAGE" />
+	<uses-permission android:name="{your_package_name}.C2D_MESSAGE" />
+```
+    
+- Create class **YourGameApplication**:
+
+```java
+	public class YourGameApplication extends SdkApplication {
+	    @Override
+	    public void onCreate() {
+	        super.onCreate();
+	    }
+	}
+```
+
+- In Your AndroidManifest.xml, set attribute "android:name" of tag
+
+```java
+<application to ".YourGameApplication" :
+	<application
+    		android:name=".YourGameApplication"
+    		android:allowBackup="true"
+    		android:icon="@drawable/icon_app"
+   		 android:label="@string/app_name"
+    		android:theme="@style/AppTheme" >
+```
+
 - Create package name is **tracking**, then create **Install.java** in this package:
     
 ```java
