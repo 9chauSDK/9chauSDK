@@ -30,7 +30,7 @@ In case user register a new game account (1), Game application send a registrati
 <dd>1. **username** (string): only a-z A-Z 0-9 and "_" character, length min 6 and max 24</dd>
 <dd>2. **user_id** (string): only a-z 0-9 character, length is 24</dd>
 <dd>3. **game_code** (string): ("{YOUR_GAME_CODE}")</dd>
-<dd>4. **token**: token rule is md5(9chau_sdk_game_code}_{username})</dd>
+<dd>4. **token**: token rule is md5(9chau_sdk_{game_code}_{username})</dd>
 </dl>
 
 After verify data, game server return registration state to 9chau server (1.1.1.2):
