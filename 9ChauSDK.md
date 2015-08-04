@@ -106,7 +106,8 @@ Please make sure development environment and your game meet the following requir
 
 ### 6. How to integrate SDK
 
-#### 6.1. Import 9chauSDK
+#### 6.1. Import 9chauSDK 
+##### 6.1.1. By Android Studio (Recommended)
 1.	On **Android Studio**, select **File menu** -> **New** -> **New Module** -> Choose **Module Type is Phone and Tablet Application**, choose **More Modules** is Import .JAR or .AAR Package and click Next button -> In File Name input field, click browse button and choose SDK .AAR  file we sent. In Subproject name input field, typing **9chauSDK** and click Finish button.
 
 2.	Update your game app build.grandle by adding dependencies at bottom file:
@@ -122,20 +123,49 @@ Please make sure development environment and your game meet the following requir
 	}
 
 ```
+##### 6.1.2. By Eclipse
+1.	Download eclipse_9chausdk.zip to your computer and extract it.
+2.	Import the library project into your Eclipse workspace. Click File > Import, select Android > Existing Android Code into Workspace, and browse to the library folder you extracted to import it: 
+3.	
+![Alt text](http://i.imgur.com/OvSpAzm.png?1 "For Eclipse")
+
+3. 	In your app project, reference Google Play services library project:
+a.	In the Package Explorer, right-click the dependent project and select Properties.
+b.	In the Properties window, select the "Android" properties group at left and locate the Library properties at right.
+c.	Click Add to open the Project Selection dialog.
+d.	From the list of available library projects, select EclipseSdk project and click OK.
+e.	When the dialog closes, click Apply in the Properties window.
+f.	Click OK to close the Properties window.
+![Alt text](http://i.imgur.com/jq1L5ZE.png?1 "For Eclipse")
+
+[Add anh]
 
 #### 6.2. Config project 
 
 Add exact this meta-data into your **AndroidManifest.xml**:
 
+Only for Android Studio
 ```java
-    <meta-data android:name="game_code" android:value="{YOUR_GAME_CODE}" />
+    	<meta-data android:name="game_code" android:value="{YOUR_GAME_CODE}" />
 ```
-**Sample code:**
+Only for Eclipse
+```java
+	<meta-data
+            android:name="com.facebook.sdk.ApplicationId"
+            android:value="@string/facebook_app_id" />
+      	<meta-data
+            android:name="game_code"
+            android:value="="{your_game_code}" />
+      	<meta-data
+            android:name="com.parse.push.notification_icon"
+            android:resource="@drawable/icon_floating" />
+      	<meta-data android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
+        <service android:name="com.cuuchau.sdk9chau.HUD"/>
+      	<service android:name="com.parse.PushService" />
 
-```java
-<application android:allowBackup="true" android:icon="@drawable/logo_9chau" android:label="@string/app_name">
-	<meta-data android:name="game_code" android:value="{YOUR_GAME_CODE}"/>
 ```
+Note: {your_game_code} is provided by us
 
 #### 6.3. Add new BroadcastReceiver 
 
@@ -144,6 +174,7 @@ An Android application cannot have multiple receivers which have the same intent
 - Remove all INSTALL_REFERRER receiver.
 - Add this receiver into your **AndroidManifest.xml**
 
+Only for Android Studio
 ```java
 	<receiver
 	    android:name="{your_package_name}.tracking.Install"
@@ -162,25 +193,58 @@ An Android application cannot have multiple receivers which have the same intent
 	    </intent-filter>
 	</receiver>
 ```
+Only for Eclipse
+```java
+	<receiver android:name="com.parse.ParseBroadcastReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+                <action android:name="android.intent.action.USER_PRESENT" />
+            </intent-filter>
+      	</receiver>
+      	<receiver android:name="com.cuuchau.sdk9chau.service.CustomNotifiReceiver"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.parse.push.intent.RECEIVE" />
+                <action android:name="com.parse.push.intent.DELETE" />
+                <action android:name="com.parse.push.intent.OPEN" />
+            </intent-filter>
+       	</receiver>
+        <receiver android:name="com.parse.GcmBroadcastReceiver"
+            android:permission="com.google.android.c2dm.permission.SEND">
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+                <action android:name="com.google.android.c2dm.intent.REGISTRATION" />
+		<category android:name="{your_package_name}" />
+            </intent-filter>
+        </receiver>
+        <receiver
+            android:name="{your_package_name}.tracking.Install"
+            android:exported="true" >
+            <intent-filter>
+                <action android:name="com.android.vending.INSTALL_REFERRER" />
+            </intent-filter>
+        </receiver>
+```
     
 - Add this permission to your **AndroidManifest.xml**:
 
 ```java
-	<permission android:protectionLevel="signature"   android:name="{your_package_name}.permission.C2D_MESSAGE" />
-	<uses-permission android:name="{your_package_name}.C2D_MESSAGE" />
+	<uses-permission android:name="android.permission.INTERNET" />
+   	<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    	<uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    	<uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
+    	<uses-permission android:name="android.permission.GET_TASKS" />
+
+    	<uses-permission android:name="android.permission.WAKE_LOCK" />
+    	<uses-permission android:name="android.permission.VIBRATE" />
+    	<uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    	<uses-permission android:name="android.permission.GET_ACCOUNTS" />
+    	<uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
+    
+    	<permission android:protectionLevel="signature"   android:name="{your_package_name}.permission.C2D_MESSAGE" />
+    	<uses-permission android:name="="{your_package_name}.permission.C2D_MESSAGE" />
 ```
     
-- Create class **YourGameApplication**:
-
-```java
-	public class YourGameApplication extends SdkApplication {
-	    @Override
-	    public void onCreate() {
-	        super.onCreate();
-	    }
-	}
-```
-
 - In Your AndroidManifest.xml, set attribute "android:name" of tag
 
 ```java
@@ -189,8 +253,19 @@ An Android application cannot have multiple receivers which have the same intent
     		android:name=".YourGameApplication"
     		android:allowBackup="true"
     		android:icon="@drawable/icon_app"
-   		 android:label="@string/app_name"
+   		android:label="@string/app_name"
     		android:theme="@style/AppTheme" >
+```
+
+- Create class **YourGameApplication** :
+
+```java
+	public class YourGameApplication extends SdkApplication {
+	    @Override
+	    public void onCreate() {
+	        super.onCreate();
+	    }
+	}
 ```
 
 - Create package name is **tracking**, then create **Install.java** in this package:
@@ -207,7 +282,51 @@ An Android application cannot have multiple receivers which have the same intent
 	    }
 	}
 ```
+- Add these services to application tag in your AndroidManifest.xml (Only for Eclipse):
+```java
+	<activity
+            android:name="com.facebook.FacebookActivity"
+            android:configChanges="keyboard|keyboardHidden|screenLayout|screenSize|orientation"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
 
+        <activity
+            android:name="com.cuuchau.sdk9chau.ui.RechargePanel"
+            android:theme="@style/sdk9chau" >
+        </activity>
+        <activity
+            android:name="com.cuuchau.sdk9chau.ui.TelcoRecharge"
+            android:theme="@style/sdk9chau" >
+        </activity>
+        <activity
+            android:name="com.cuuchau.sdk9chau.ui.AuthPanel"
+            android:theme="@style/sdk9chau" >
+        </activity>
+        <activity
+            android:name="com.cuuchau.sdk9chau.ui.CharacterPanel"
+            android:theme="@style/sdk9chau" >
+        </activity>
+        <activity
+            android:name="com.cuuchau.sdk9chau.ui.ProfilePanel"
+            android:theme="@style/sdk9chau" >
+        </activity>
+        <activity
+            android:name="com.cuuchau.sdk9chau.ui.PlayNowPanel"
+            android:theme="@style/sdk9chau" >
+        </activity>
+        <activity
+            android:name="com.cuuchau.sdk9chau.ui.VerifyAccountPanel"
+            android:theme="@style/sdk9chau" >
+        </activity>
+        <activity
+            android:name="com.cuuchau.sdk9chau.ui.ChangeCPanel"
+            android:theme="@style/sdk9chau" >
+        </activity>
+        <activity
+            android:name="com.cuuchau.sdk9chau.ui.WalletPanel"
+            android:theme="@style/sdk9chau" >
+        </activity>
+
+```
 #### 6.4. Initialize SDK
 
 Add CuuChauSdk.sdk Initialize(this) into onCreate method in your main activity.
@@ -304,6 +423,7 @@ To show payment function, add this script to payment button click event:
         }
     }
 ```
+Note: gameOrder is provided by game application when show payment view, and we return into game server ( by your API ) after recharge successfully.
 
 ##### PaymentCallback Methods:
 
@@ -339,3 +459,5 @@ To show profile, please add this script to profile button: CuuChauSdk.showProfil
 - Ver. 1.1.1 (24/07/2015)
 	- Added: Push Notification
 	- Fixed bugs
+- Ver. 1.2.0 (04/08/2015)
+	- Added: Solution intergrate by Eclipse
