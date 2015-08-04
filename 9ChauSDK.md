@@ -24,7 +24,9 @@
 [6. How to integrate SDK](#6-how-to-integrate-sdk)
 
 [6.1. Import 9chauSDK](#61-import-9chausdk)
+
 [6.1.1 By Android Studio](#611-by-android-studio)
+
 [6.1.2 By Eclipse](#611-by-eclipse)
 
 [6.2. Config project](#62-config-project)
