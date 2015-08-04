@@ -24,6 +24,8 @@
 [6. How to integrate SDK](#6-how-to-integrate-sdk)
 
 [6.1. Import 9chauSDK](#61-import-9chausdk)
+[6.1.1 By Android Studio](#611-by-android-studio)
+[6.1.2 By Eclipse](#611-by-eclipse)
 
 [6.2. Config project](#62-config-project)
 
@@ -126,7 +128,7 @@ Please make sure development environment and your game meet the following requir
 ##### 6.1.2. By Eclipse
 1.	Download eclipse_9chausdk.zip to your computer and extract it.
 2.	Import the library project into your Eclipse workspace. Click File > Import, select Android > Existing Android Code into Workspace, and browse to the library folder you extracted to import it: 
-3.	
+
 ![Alt text](http://i.imgur.com/OvSpAzm.png?1 "For Eclipse")
 
 3. 	In your app project, reference Google Play services library project:
@@ -136,9 +138,9 @@ c.	Click Add to open the Project Selection dialog.
 d.	From the list of available library projects, select EclipseSdk project and click OK.
 e.	When the dialog closes, click Apply in the Properties window.
 f.	Click OK to close the Properties window.
+
 ![Alt text](http://i.imgur.com/jq1L5ZE.png?1 "For Eclipse")
 
-[Add anh]
 
 #### 6.2. Config project 
 
