@@ -134,12 +134,20 @@ Please make sure development environment and your game meet the following requir
 ![Alt text](http://i.imgur.com/OvSpAzm.png?1 "For Eclipse")
 
 3. 	In your app project, reference Google Play services library project:
+ 	
 a.	In the Package Explorer, right-click the dependent project and select Properties.
+
 b.	In the Properties window, select the "Android" properties group at left and locate the Library properties at right.
+
 c.	Click Add to open the Project Selection dialog.
+
 d.	From the list of available library projects, select EclipseSdk project and click OK.
+
 e.	When the dialog closes, click Apply in the Properties window.
+
 f.	Click OK to close the Properties window.
+
+
 
 ![Alt text](http://i.imgur.com/jq1L5ZE.png?1 "For Eclipse")
 
