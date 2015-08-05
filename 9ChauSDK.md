@@ -23,23 +23,17 @@
 
 [6. How to integrate SDK](#6-how-to-integrate-sdk)
 
-[6.1. Import 9chauSDK](#61-import-9chausdk)
+[6.1. Import 9chauSDK by Android Studio](#61-import-9chausdk-by-android-studio)
 
-[6.1.1 By Android Studio](#611-by-android-studio)
+[6.2. Import 9chauSDK by Eclipse](#62-import-9chausdk-by-eclipse)
 
-[6.1.2 By Eclipse](#611-by-eclipse)
+[6.3. Initialize SDK](#63-initialize-sdk)
 
-[6.2. Config project](#62-config-project)
+[6.4. Add authentication function](#64-add-authentication-function)
 
-[6.3. Add new BroadcastReceiver](#63-add-new-broadcastreceiver)
+[6.5. Add payment function](#65-add-payment-function)
 
-[6.4. Initialize SDK](#64-initialize-sdk)
-
-[6.5. Add authentication function](#65-add-authentication-function)
-
-[6.6. Add payment function](#66-add-payment-function)
-
-[6.7. Add profile function](#67-add-profile-function)
+[6.6. Add profile function](#66-add-profile-function)
 
 
 
@@ -53,7 +47,7 @@ This guide is intended to help you integrating SDK for Game. Please read this gu
 -	A Telco is telecom company: Viettel, Vinaphone, Mobiphone, …
 	- A Telco card contain two code: serial and pin code. User must enter completely and accurately when using payment function.
 -	A transaction is a game order when user recharge to a game.
-	- A transaction ID is unique order ID for each game order.
+- 	A transaction ID is unique order ID for each game order.
 
 
 ### 3. Mind map and Functions
@@ -110,8 +104,7 @@ Please make sure development environment and your game meet the following requir
 
 ### 6. How to integrate SDK
 
-#### 6.1. Import 9chauSDK 
-##### 6.1.1. By Android Studio (Recommended)
+#### 6.1. Import 9chauSDK by Android Studio (Recommended)
 1.	On **Android Studio**, select **File menu** -> **New** -> **New Module** -> Choose **Module Type is Phone and Tablet Application**, choose **More Modules** is Import .JAR or .AAR Package and click Next button -> In File Name input field, click browse button and choose SDK .AAR  file we sent. In Subproject name input field, typing **9chauSDK** and click Finish button.
 
 2.	Update your game app build.grandle by adding dependencies at bottom file:
@@ -127,64 +120,24 @@ Please make sure development environment and your game meet the following requir
 	}
 
 ```
-##### 6.1.2. By Eclipse
-1.	Download **eclipse_9chausdk.zip** to your computer and extract it.
-2.	Import the library project into your Eclipse workspace. Click **File** > **Import**, select **Android** > **Existing Android Code into Workspace**, and browse to the library folder you extracted to import it: 
-![Alt text](http://i.imgur.com/OvSpAzm.png?1 "For Eclipse")
-3.	In your app project, reference Google Play services library project:
- 	
-a.	In the **Package Explorer**, right-click the dependent project and select **Properties**.
 
-b.	In the **Properties** window, select the "**Android**" properties group at left and locate the **Library** properties at right.
-
-c.	Click **Add** to open the **Project Selection** dialog.
-
-d.	From the list of available library projects, select **EclipseSdk** project and click **OK**.
-
-e.	When the dialog closes, click **Apply** in the **Properties** window.
-
-f.	Click **OK** to close the **Properties** window.
-
-
-
-![Alt text](http://i.imgur.com/jq1L5ZE.png?1 "For Eclipse")
-
-
-#### 6.2. Config project 
+3. 	Config Project
 
 Add exact this meta-data into your **AndroidManifest.xml**:
 
-Only for Android Studio
 ```java
     	<meta-data android:name="game_code" android:value="{YOUR_GAME_CODE}" />
 ```
-Only for Eclipse
-```java
-	<meta-data
-            android:name="com.facebook.sdk.ApplicationId"
-            android:value="@string/facebook_app_id" />
-      	<meta-data
-            android:name="game_code"
-            android:value="="{your_game_code}" />
-      	<meta-data
-            android:name="com.parse.push.notification_icon"
-            android:resource="@drawable/icon_floating" />
-      	<meta-data android:name="com.google.android.gms.version"
-            android:value="@integer/google_play_services_version" />
-        <service android:name="com.cuuchau.sdk9chau.HUD"/>
-      	<service android:name="com.parse.PushService" />
 
-```
 Note: {your_game_code} is provided by us
 
-#### 6.3. Add new BroadcastReceiver 
+4. 	Add new BroadcastReceiver 
 
 An Android application cannot have multiple receivers which have the same intent-filtered action. If you want have more than one INSTALL_REFFERER receiver, you must make the proxy receiver like this:
 
 - Remove all INSTALL_REFERRER receiver.
 - Add this receiver into your **AndroidManifest.xml**
 
-Only for Android Studio
 ```java
 	<receiver
 	    android:name="{your_package_name}.tracking.Install"
@@ -203,7 +156,110 @@ Only for Android Studio
 	    </intent-filter>
 	</receiver>
 ```
-Only for Eclipse
+
+- Add this permission to your **AndroidManifest.xml**:
+
+```java
+	<uses-permission android:name="android.permission.INTERNET" />
+   	<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    	<uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    	<uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
+    	<uses-permission android:name="android.permission.GET_TASKS" />
+
+    	<uses-permission android:name="android.permission.WAKE_LOCK" />
+    	<uses-permission android:name="android.permission.VIBRATE" />
+    	<uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    	<uses-permission android:name="android.permission.GET_ACCOUNTS" />
+    	<uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
+    
+    	<permission android:protectionLevel="signature"   android:name="{your_package_name}.permission.C2D_MESSAGE" />
+    	<uses-permission android:name="{your_package_name}.permission.C2D_MESSAGE" />
+```
+- In Your AndroidManifest.xml, set attribute "android:name" of tag
+
+```java
+<application to ".YourGameApplication" :
+	<application
+    		android:name=".YourGameApplication">
+```
+
+- Create class **YourGameApplication** :
+
+```java
+	public class YourGameApplication extends SdkApplication {
+	    @Override
+	    public void onCreate() {
+	        super.onCreate();
+	    }
+	}
+```
+
+- Create package name is **tracking**, then create **Install.java** in this package:
+    
+```java
+	public class Install extends BroadcastReceiver {
+	    @Override
+	    public void onReceive(Context context, Intent intent) {
+	        com.cuuchau.sdk9chau.tracking.InstallationReceiver installationReceiver = new com.cuuchau.sdk9chau.tracking.InstallationReceiver();
+	        installationReceiver.onReceive(context,intent);
+	
+	
+		// your code here
+	    }
+	}
+```
+#### 6.2. Import SDK By Eclipse
+1.	Download **eclipse_9chausdk.zip** to your computer and extract it.
+2.	Import the library project into your Eclipse workspace. Click **File** > **Import**, select **Android** > **Existing Android Code into Workspace**, and browse to the library folder you extracted to import it: 
+![Alt text](http://i.imgur.com/OvSpAzm.png?1 "For Eclipse")
+3.	In your app project, reference Google Play services library project:
+ 	
+	a.	In the **Package Explorer**, right-click the dependent project and select **Properties**.
+	
+	b.	In the **Properties** window, select the "**Android**" properties group at left and locate the **Library** properties at right.
+	
+	c.	Click **Add** to open the **Project Selection** dialog.
+	
+	d.	From the list of available library projects, select **EclipseSdk** project and click **OK**.
+	
+	e.	When the dialog closes, click **Apply** in the **Properties** window.
+	
+	f.	Click **OK** to close the **Properties** window.
+
+
+
+![Alt text](http://i.imgur.com/jq1L5ZE.png?1 "For Eclipse")
+
+
+4. 	Config project 
+
+Add exact this meta-data into your **AndroidManifest.xml**:
+
+```java
+	<meta-data
+            android:name="com.facebook.sdk.ApplicationId"
+            android:value="@string/facebook_app_id" />
+      	<meta-data
+            android:name="game_code"
+            android:value="{your_game_code}" />
+      	<meta-data
+            android:name="com.parse.push.notification_icon"
+            android:resource="@drawable/icon_floating" />
+      	<meta-data android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
+        <service android:name="com.cuuchau.sdk9chau.HUD"/>
+      	<service android:name="com.parse.PushService" />
+
+```
+Note: {your_game_code} is provided by us
+
+5. 	Add new BroadcastReceiver 
+
+An Android application cannot have multiple receivers which have the same intent-filtered action. If you want have more than one INSTALL_REFFERER receiver, you must make the proxy receiver like this:
+
+- Remove all INSTALL_REFERRER receiver.
+- Add this receiver into your **AndroidManifest.xml**
+
 ```java
 	<receiver android:name="com.parse.ParseBroadcastReceiver">
             <intent-filter>
@@ -260,11 +316,7 @@ Only for Eclipse
 ```java
 <application to ".YourGameApplication" :
 	<application
-    		android:name=".YourGameApplication"
-    		android:allowBackup="true"
-    		android:icon="@drawable/icon_app"
-   		android:label="@string/app_name"
-    		android:theme="@style/AppTheme" >
+    		android:name=".YourGameApplication">
 ```
 
 - Create class **YourGameApplication** :
@@ -292,7 +344,7 @@ Only for Eclipse
 	    }
 	}
 ```
-- Add these services to application tag in your AndroidManifest.xml (Only for Eclipse):
+- Add these services to application tag in your AndroidManifest.xml:
 ```java
 	<activity
             android:name="com.facebook.FacebookActivity"
@@ -337,7 +389,7 @@ Only for Eclipse
         </activity>
 
 ```
-#### 6.4. Initialize SDK
+#### 6.3. Initialize SDK
 
 Add CuuChauSdk.sdk Initialize(this) into onCreate method in your main activity.
 
@@ -351,7 +403,7 @@ Add CuuChauSdk.sdk Initialize(this) into onCreate method in your main activity.
 	}
 ```
 
-#### 6.5. Add authentication function
+#### 6.4. Add authentication function
 
 
 	To show authentication function, add this script to your main activity, in **onCreate** method
@@ -402,7 +454,7 @@ Add CuuChauSdk.sdk Initialize(this) into onCreate method in your main activity.
 If you want to get username property, you can access to **user** object by use this script: user.getString("username");
 
 
-#### 6.6. Add payment function
+#### 6.5. Add payment function
 
 
 To show payment function, add this script to payment button click event:
@@ -442,7 +494,7 @@ Note: gameOrder is provided by game application when show payment view, and we r
 |onSuccess| |Called after recharging success|
 
 
-#### 6.7. Add profile function
+#### 6.6. Add profile function
 
 To show profile, please add this script to profile button: CuuChauSdk.showProfilePanel();
 
