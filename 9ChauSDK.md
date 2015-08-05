@@ -160,18 +160,6 @@ An Android application cannot have multiple receivers which have the same intent
 - Add this permission to your **AndroidManifest.xml**:
 
 ```java
-	<uses-permission android:name="android.permission.INTERNET" />
-   	<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-    	<uses-permission android:name="android.permission.READ_PHONE_STATE" />
-    	<uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
-    	<uses-permission android:name="android.permission.GET_TASKS" />
-
-    	<uses-permission android:name="android.permission.WAKE_LOCK" />
-    	<uses-permission android:name="android.permission.VIBRATE" />
-    	<uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
-    	<uses-permission android:name="android.permission.GET_ACCOUNTS" />
-    	<uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
-    
     	<permission android:protectionLevel="signature"   android:name="{your_package_name}.permission.C2D_MESSAGE" />
     	<uses-permission android:name="{your_package_name}.permission.C2D_MESSAGE" />
 ```
