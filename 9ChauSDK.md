@@ -201,18 +201,18 @@ An Android application cannot have multiple receivers which have the same intent
 ##### 2.	Import the library project into your Eclipse workspace. Click **File** > **Import**, select **Android** > **Existing Android Code into Workspace**, and browse to the library folder you extracted to import it: 
 ![Alt text](http://i.imgur.com/OvSpAzm.png?1 "For Eclipse")
 ##### 3.	In your app project, reference Google Play services library project:
- 	
-	a.	In the **Package Explorer**, right-click the dependent project and select **Properties**.
-	
-	b.	In the **Properties** window, select the "**Android**" properties group at left and locate the **Library** properties at right.
-	
-	c.	Click **Add** to open the **Project Selection** dialog.
-	
-	d.	From the list of available library projects, select **EclipseSdk** project and click **OK**.
-	
-	e.	When the dialog closes, click **Apply** in the **Properties** window.
-	
-	f.	Click **OK** to close the **Properties** window.
+ 
+a.	In the **Package Explorer**, right-click the dependent project and select **Properties**.
+
+b.	In the **Properties** window, select the "**Android**" properties group at left and locate the **Library** properties at right.
+
+c.	Click **Add** to open the **Project Selection** dialog.
+
+d.	From the list of available library projects, select **EclipseSdk** project and click **OK**.
+
+e.	When the dialog closes, click **Apply** in the **Properties** window.
+
+f.	Click **OK** to close the **Properties** window.
 
 
 
