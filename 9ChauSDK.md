@@ -120,8 +120,7 @@ Please make sure development environment and your game meet the following requir
 	}
 
 ```
-
-3. 	Config Project
+3.	Config Project
 
 Add exact this meta-data into your **AndroidManifest.xml**:
 
@@ -130,6 +129,7 @@ Add exact this meta-data into your **AndroidManifest.xml**:
 ```
 
 Note: {your_game_code} is provided by us
+
 
 4. 	Add new BroadcastReceiver 
 
@@ -152,7 +152,7 @@ An Android application cannot have multiple receivers which have the same intent
 	        <action android:name="com.google.android.c2dm.intent.RECEIVE" />
 	        <action android:name="com.google.android.c2dm.intent.REGISTRATION" />
 	
-	        <category android:name="="{your_package_name}" />
+	        <category android:name="{your_package_name}" />
 	    </intent-filter>
 	</receiver>
 ```
