@@ -23,7 +23,7 @@
 
 [6. How to integrate SDK](#6-how-to-integrate-sdk)
 
-[6.1. Import 9chauSDK by Android Studio](#61-import-9chausdk-by-android-studio)
+[6.1. Import 9chauSDK by Android Studio](#61-import-9chausdk-by-android-studio-recommended)
 
 [6.2. Import 9chauSDK by Eclipse](#62-import-9chausdk-by-eclipse)
 
@@ -208,7 +208,7 @@ An Android application cannot have multiple receivers which have the same intent
 	    }
 	}
 ```
-#### 6.2. Import SDK By Eclipse
+#### 6.2. Import 9chauSDK By Eclipse
 1.	Download **eclipse_9chausdk.zip** to your computer and extract it.
 2.	Import the library project into your Eclipse workspace. Click **File** > **Import**, select **Android** > **Existing Android Code into Workspace**, and browse to the library folder you extracted to import it: 
 ![Alt text](http://i.imgur.com/OvSpAzm.png?1 "For Eclipse")
