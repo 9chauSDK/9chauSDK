@@ -105,9 +105,9 @@ Please make sure development environment and your game meet the following requir
 ### 6. How to integrate SDK
 
 #### 6.1. Import 9chauSDK by Android Studio (Recommended)
-1.	On **Android Studio**, select **File menu** -> **New** -> **New Module** -> Choose **Module Type is Phone and Tablet Application**, choose **More Modules** is Import .JAR or .AAR Package and click Next button -> In File Name input field, click browse button and choose SDK .AAR  file we sent. In Subproject name input field, typing **9chauSDK** and click Finish button.
+##### 1.	On **Android Studio**, select **File menu** -> **New** -> **New Module** -> Choose **Module Type is Phone and Tablet Application**, choose **More Modules** is Import .JAR or .AAR Package and click Next button -> In File Name input field, click browse button and choose SDK .AAR  file we sent. In Subproject name input field, typing **9chauSDK** and click Finish button.
 
-2.	Update your game app build.grandle by adding dependencies at bottom file:
+##### 2.	Update your game app build.grandle by adding dependencies at bottom file:
 ```java
 	dependencies {
 		compile fileTree(dir: 'libs', include: ['*.jar'])
@@ -120,7 +120,7 @@ Please make sure development environment and your game meet the following requir
 
 ```
 
-3.	Config project
+##### 3.	Config project
 
 Add exact this meta-data into your **AndroidManifest.xml**:
 
@@ -130,7 +130,7 @@ Add exact this meta-data into your **AndroidManifest.xml**:
 
 Note: {your_game_code} is provided by us
 
-4.	Add new BroadcastReceiver
+##### 4.	Add new BroadcastReceiver
 
 
 An Android application cannot have multiple receivers which have the same intent-filtered action. If you want have more than one INSTALL_REFFERER receiver, you must make the proxy receiver like this:
@@ -209,10 +209,10 @@ An Android application cannot have multiple receivers which have the same intent
 	}
 ```
 #### 6.2. Import 9chauSDK By Eclipse
-1.	Download **eclipse_9chausdk.zip** to your computer and extract it.
-2.	Import the library project into your Eclipse workspace. Click **File** > **Import**, select **Android** > **Existing Android Code into Workspace**, and browse to the library folder you extracted to import it: 
+##### 1.	Download **eclipse_9chausdk.zip** to your computer and extract it.
+##### 2.	Import the library project into your Eclipse workspace. Click **File** > **Import**, select **Android** > **Existing Android Code into Workspace**, and browse to the library folder you extracted to import it: 
 ![Alt text](http://i.imgur.com/OvSpAzm.png?1 "For Eclipse")
-3.	In your app project, reference Google Play services library project:
+##### 3.	In your app project, reference Google Play services library project:
  	
 	a.	In the **Package Explorer**, right-click the dependent project and select **Properties**.
 	
@@ -231,7 +231,7 @@ An Android application cannot have multiple receivers which have the same intent
 ![Alt text](http://i.imgur.com/jq1L5ZE.png?1 "For Eclipse")
 
 
-4. 	Config project 
+##### 4. 	Config project 
 
 Add exact this meta-data into your **AndroidManifest.xml**:
 
@@ -253,7 +253,7 @@ Add exact this meta-data into your **AndroidManifest.xml**:
 ```
 Note: {your_game_code} is provided by us
 
-5. 	Add new BroadcastReceiver 
+##### 5. 	Add new BroadcastReceiver 
 
 An Android application cannot have multiple receivers which have the same intent-filtered action. If you want have more than one INSTALL_REFFERER receiver, you must make the proxy receiver like this:
 
