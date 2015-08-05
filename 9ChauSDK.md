@@ -109,6 +109,7 @@ Please make sure development environment and your game meet the following requir
 
 2.	Update your game app build.grandle by adding dependencies at bottom file:
 
+
 ```java
 	dependencies {
 		compile fileTree(dir: 'libs', include: ['*.jar'])
