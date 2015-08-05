@@ -221,7 +221,7 @@ An Android application cannot have multiple receivers which have the same intent
 
 ##### 4. 	Config project 
 
-Add exact this meta-data into your **AndroidManifest.xml**:
+Add exact these config into **application** tag in your **AndroidManifest.xml**:
 
 ```java
 	<meta-data
