@@ -431,7 +431,7 @@ Add CuuChauSdk.sdk Initialize(this) into onCreate method in your main activity.
 ##### User Properties:
 |Properties | Type | Description |
 |:---|:---|:---|
-|status|String|**status** = 1 (successful), otherwise is not successful|
+|status|String|**status** = 0 (successful), otherwise is not successful|
 |message| String | describes **status** in detail |
 |username| String |must match with **username** 9chau server provides|
 |game_code| String |must match **game_code** 9chau server provides|
