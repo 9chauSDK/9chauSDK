@@ -162,7 +162,7 @@ After user enter card information, 9chau SDK send this payment information to 9c
 <dd>9. **currency** (string): money unit (VND, USD, …)</dd>
 <dd>10. **game_money** (int): amount to be converted at the rate of money currency (VND, USD, …) and game money currency (KNB, XU, GOLD, …)</dd>
 <dd>11. **token** (string): token rule is md5(9chau_sdk_{serial}_{pincode})</dd>
-<dd>12. **game_order** (string): must match with game_order game server provides</dd>
+<dd>12. **game_order** (string): must match with gameOrder game application provided (see more detail https://github.com/9chauSDK/9chauSDK/blob/master/9ChauSDK.md#65-add-payment-function)</dd>
 </dl>
 
 After receiving the request, game server proceed that data and send a response to 9chau server (2.3), details as below:
@@ -201,7 +201,7 @@ After receiving the request, game server proceed that data and send a response t
 	-	**currency** (string): must match **currency** 9chau server provides
 	-	**game_money** (int): must match **game_money** 9chau server provides
 	-	**token** (string): must match **token** 9chau server provides
-	-	**game_order** (string): must match with **game_order** 9chau server provides
+	-	**game_order** (string): must match with **gameOrder** game application provides (see more detail https://github.com/9chauSDK/9chauSDK/blob/master/9ChauSDK.md#65-add-payment-function)
 
 - Example:
 	```java
