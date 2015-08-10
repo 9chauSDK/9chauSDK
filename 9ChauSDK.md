@@ -514,3 +514,5 @@ To show profile, please add this script to profile button: CuuChauSdk.showProfil
 	- Fixed bugs
 - Ver. 1.2.0 (04/08/2015)
 	- Added: Solution intergrate by Eclipse
+- Ver. 1.2.1 (10/08/2015)
+	- Added: Logout function for logout in game
