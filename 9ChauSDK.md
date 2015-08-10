@@ -417,6 +417,10 @@ Add CuuChauSdk.sdk Initialize(this) into onCreate method in your main activity.
     });
 ```
 
+- If you want to use logout function for yourself in game ( not by "Logout" button in SDK view ), Please use below script:
+```java
+CuuChauSdk.logout();
+```
 
 ##### Methods of AuthCallback:
 
@@ -496,7 +500,6 @@ To show profile, please add this script to profile button: CuuChauSdk.showProfil
         }
     }
 ```
-
 
 
 
