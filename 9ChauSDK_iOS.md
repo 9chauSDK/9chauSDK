@@ -102,34 +102,35 @@ and the result after importing in Xcode:
 
 ##### 6.2. Import Eway.h header: 
 
-```
+```java
 	#import "EWay.h"
 ```
 ##### 6.3. Replace content in function:
-```
+
+```java
 	- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {} 
 ```
 
 with the statement:
 
-```
+```java
 	return [EWay application:application didFinishLaunchingWithOptions:launchOptions];
 ```
 
 ##### 6.4. Replace content in function:
 
-```
+```java
 	- (void)applicationDidBecomeActive:(UIApplication *)application {} 
 ```
 with the statement:
 
-```
+```java
 	return [EWay activeApp];
 ```
 
 ##### 6.5. Add new function:
 
-```
+```java
 	- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
 	    return [EWay application:application
 	                     openURL:url
@@ -142,13 +143,13 @@ with the statement:
 
 ##### 7.1. Import the header file Eway.h:
 
-```
+```java
 	#import "EWay.h"
 ```
 
 ##### 7.2. To show authentication function, use this script:
 
-```
+```java
 	[EWay authorizeWithCompleted:^(EWayUser *user, NSError *error) {
 	if(!error) {
 	     		//if success, your code here      
@@ -162,13 +163,13 @@ with the statement:
 
 ##### 8.1. Import the header file Eway.h:
 
-```
+```java
 	#import "EWay.h"
 ```
 
 ##### 8.2. To show payment function, use this script to payment button:
 
-```
+```java
 	[EWay showRechargePanelWithGameOrder:@"test" andCompletedBlock:^(NSError *error) {
 		//if error, your processing code here        
 	}];
@@ -182,13 +183,13 @@ Note: **showRechargePanelWithGameOrder** is **json string**  and **optional**.
 
 ##### 9.1. Import the header file Eway.h:
 
-```
+```java
 	#import "EWay.h"
 ```
 
 ##### 9.2. In file .m that you want to add profile button, at tag @interface implements EwayDelegate, example: 
 
-```
+```java
 	@interface ViewController ()<EWayDelegate>
 
 	@end
@@ -196,7 +197,7 @@ Note: **showRechargePanelWithGameOrder** is **json string**  and **optional**.
 
 ##### 9.3. To show profile, use this script:
 
-```
+```java
     UIApplication *application  = [UIApplication sharedApplication];
     UIWindow* window = application.keyWindow;
     if (!window || window.windowLevel != UIWindowLevelNormal) {
