@@ -90,7 +90,7 @@ and the result after importing in Xcode:
 - Value: **your_unique_scheme_suffix**
 - Note: The *URL scheme suffix* **must start** with *a letter* and **only contain** *lowercase letters* and *numbers*.
  
-![Alt text](http://i.imgur.com/5loZ6Cu.png?2 "")
+![Alt text](http://i.imgur.com/qq1WktO "")
 
 ### 5. Config URL types
 
