@@ -179,12 +179,13 @@ If you want to get username property, you can access to **user** object by use t
 ##### 8.2. To show payment function, use this script to payment button:
 
 ```objc
-	[EWay showRechargePanelWithGameOrder:@"test" andCompletedBlock:^(NSError *error) {
+	[EWay showRechargePanelWithGameOrder:(NSString *)gameOrder andCompletedBlock:^(NSError *error) {
 		//if error, your processing code here        
 	}];
 ```
 
-Note: **showRechargePanelWithGameOrder** is **json string**  and **optional**.
+Note: **gameOrder** is provided by game application when show payment view, and we return it into your game server ( by your API ) after recharge successfully.
+Note: **gameOrder** is **json string**  and **optional**.
 
 
 
