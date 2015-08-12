@@ -132,10 +132,7 @@ with the statement:
 
 ```objc
 	- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
-	    return [EWay application:application
-	                     openURL:url
-	           sourceApplication:sourceApplication
-	                  annotation:annotation];
+	    return [EWay application:application openURL:url sourceApplication:sourceApplication annotation:annotation];
 	}
 ```
 
@@ -151,11 +148,11 @@ with the statement:
 
 ```objc
 	[EWay authorizeWithCompleted:^(EWayUser *user, NSError *error) {
-	if(!error) {
+		if(!error) {
 	     		//if success, your code here      
-	     	} else {
-	           //if error, your code here
-	  	}
+		} else {
+	        	//if error, your code here
+		}
 	}];
 ```
 ##### User Properties:
