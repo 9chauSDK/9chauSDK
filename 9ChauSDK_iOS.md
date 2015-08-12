@@ -70,28 +70,27 @@ and the result after importing in Xcode:
 
 ![Alt text](http://i.imgur.com/BRNLOjY.png "")
 
-##### 4.3. Add FacebookUrlSchemeSuffix property:
-- Key: **FacebookUrlSchemeSuffix**
-- Type: **String**
-- Value: **your_unique_scheme_suffix**
-- Note: The *URL scheme suffix* **must start** with *a letter* and **only contain** *lowercase letters* and *numbers*.
- 
-![Alt text](http://i.imgur.com/5loZ6Cu.png?2 "")
-
-##### 4.4. Add FacebookAppID property:
+##### 4.3. Add FacebookAppID property:
 - Key: **FacebookAppID**
 - Type: **String**
 - Value: **1527768420832101**
  
 ![Alt text](http://i.imgur.com/A2QZZrM.png "")
 
-##### 4.5. Add FacebookDisplayName property:
+##### 4.4. Add FacebookDisplayName property:
 - Key: **FacebookDisplayName**
 - Type: **String**
 - Value: **9chau**
 
 ![Alt text](http://i.imgur.com/nO4jleY.png "")
 
+##### 4.5. Add FacebookUrlSchemeSuffix property:
+- Key: **FacebookUrlSchemeSuffix**
+- Type: **String**
+- Value: **your_unique_scheme_suffix**
+- Note: The *URL scheme suffix* **must start** with *a letter* and **only contain** *lowercase letters* and *numbers*.
+ 
+![Alt text](http://i.imgur.com/5loZ6Cu.png?2 "")
 
 ### 5. Config URL types
 
