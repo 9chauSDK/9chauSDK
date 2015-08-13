@@ -193,6 +193,7 @@ If you want to get username property, you can access to **user** object by use t
 ```
 
 Note: **gameOrder** is provided by game application when show payment view, and we return it into your game server ( by your API ) after recharge successfully.
+
 Note: **gameOrder** is **json string**  and **optional**.
 
 
