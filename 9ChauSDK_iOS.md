@@ -186,8 +186,9 @@ If you want to get username property, you can access to **user** object by use t
 ##### 8.2. To show payment function, use this script to payment button:
 
 ```objc
-	[EWay showRechargePanelWithGameOrder:(NSString *)gameOrder andCompletedBlock:^(NSError *error) {
-		//if error, your processing code here        
+	[EWay showRechargePanelWithGameOrder:(NSString *)gameOrder andCompletedBlock:^ {
+		//if recharging is success
+		//your code here to adding money for users
 	}];
 ```
 
