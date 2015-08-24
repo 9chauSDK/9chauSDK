@@ -378,7 +378,6 @@ Please add tracking play function after player choose game server:
  CuuChauSdk.trackingPlayFG(serverID);
 ```
 *Note: type of serverID parameter is string.*
----
 
 
 
