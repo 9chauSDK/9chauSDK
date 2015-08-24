@@ -136,17 +136,14 @@ Add exact these config into **application** tag in your **AndroidManifest.xml**:
             android:value="@string/facebook_app_id" />
       	<meta-data
             android:name="game_code"
-            android:value="{your_game_code}" />
-      	<meta-data
-            android:name="com.parse.push.notification_icon"
-            android:resource="@drawable/icon_floating" />
+            android:value="fgame-pk-truyen-ky" />
       	<meta-data android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />
+            
         <service android:name="com.cuuchau.sdk9chau.HUD"/>
-      	<service android:name="com.parse.PushService" />
 
 ```
-Note: {your_game_code} is fgame-pk-truyen-ky
+
 
 ##### 5. 	Add new BroadcastReceiver 
 
@@ -156,28 +153,6 @@ An Android application cannot have multiple receivers which have the same intent
 - Add this receiver into your **AndroidManifest.xml**
 
 ```java
-	<receiver android:name="com.parse.ParseBroadcastReceiver">
-            <intent-filter>
-                <action android:name="android.intent.action.BOOT_COMPLETED" />
-                <action android:name="android.intent.action.USER_PRESENT" />
-            </intent-filter>
-      	</receiver>
-      	<receiver android:name="com.cuuchau.sdk9chau.service.CustomNotifiReceiver"
-            android:exported="false">
-            <intent-filter>
-                <action android:name="com.parse.push.intent.RECEIVE" />
-                <action android:name="com.parse.push.intent.DELETE" />
-                <action android:name="com.parse.push.intent.OPEN" />
-            </intent-filter>
-       	</receiver>
-        <receiver android:name="com.parse.GcmBroadcastReceiver"
-            android:permission="com.google.android.c2dm.permission.SEND">
-            <intent-filter>
-                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
-                <action android:name="com.google.android.c2dm.intent.REGISTRATION" />
-		<category android:name="{your_package_name}" />
-            </intent-filter>
-        </receiver>
         <receiver
             android:name="{your_package_name}.tracking.Install"
             android:exported="true" >
@@ -201,30 +176,9 @@ An Android application cannot have multiple receivers which have the same intent
     	<uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
     	<uses-permission android:name="android.permission.GET_ACCOUNTS" />
     	<uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
-    
-    	<permission android:protectionLevel="signature"   android:name="{your_package_name}.permission.C2D_MESSAGE" />
-    	<uses-permission android:name="="{your_package_name}.permission.C2D_MESSAGE" />
+
 ```
     
-- In Your AndroidManifest.xml, set attribute "android:name" of tag
-
-```java
-<application to ".YourGameApplication" :
-	<application
-    		android:name=".YourGameApplication">
-```
-
-- Create class **YourGameApplication** :
-
-```java
-	public class YourGameApplication extends SdkApplication {
-	    @Override
-	    public void onCreate() {
-	        super.onCreate();
-	    }
-	}
-```
-
 - Create package name is **tracking**, then create **Install.java** in this package:
     
 ```java
@@ -241,9 +195,10 @@ An Android application cannot have multiple receivers which have the same intent
 ```
 - Add these services to application tag in your AndroidManifest.xml:
 ```java
-	<activity
+	        <activity
             android:name="com.facebook.FacebookActivity"
             android:configChanges="keyboard|keyboardHidden|screenLayout|screenSize|orientation"
+            android:label="@string/app_name"
             android:theme="@android:style/Theme.Translucent.NoTitleBar" />
 
         <activity
@@ -282,6 +237,16 @@ An Android application cannot have multiple receivers which have the same intent
             android:name="com.cuuchau.sdk9chau.ui.WalletPanel"
             android:theme="@style/sdk9chau" >
         </activity>
+        <activity
+            android:name="com.cuuchau.sdk9chau.ui.FGPayment"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen" >
+        </activity>
+        <activity
+            android:name="com.cuuchau.sdk9chau.ui.FGProfile"
+            android:theme="@style/sdk9chau" >
+        </activity>
+
 
 ```
 #### 6.3. Initialize SDK
@@ -359,9 +324,9 @@ If you want to get username property, you can access to **user** object by use t
 To show payment function, add this script to payment button click event:
 
 ```java
-    CuuChauSdk.showRechargePanel(gameOrder, new PaymentCallback() {
+    CuuChauSdk.showRechargePanel(gameOrder, serverID, new PaymentCallback() {
         @Override
-        public void onSuccess() {
+        public void onSuccess(JSONObject paymentResponse) {
 	        // your code here
         }
     });
@@ -375,9 +340,9 @@ To show payment function, add this script to payment button click event:
     @Override
     public void onClick(View v) {
         if(v.getId()== R.id.btnCharge){
-            CuuChauSdk.showRechargePanel(gameOrder, new PaymentCallback() {
+            CuuChauSdk.showRechargePanel(gameOrder, serverID, new PaymentCallback() {
                 @Override
-                public void onSuccess() {
+                public void onSuccess(JSONObject paymentResponse) {
     		        // your code here
                 }
             });
