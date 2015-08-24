@@ -333,6 +333,7 @@ To show payment function, add this script to payment button click event:
 ```
 
 *Note: type of gameOrder parameter is json string.*
+*Note: type of serverID parameter is json string.*
 
 **Sample code:**
 
@@ -355,7 +356,7 @@ Note: gameOrder is provided by game application when show payment view, and we r
 
 |Methods|Parameters|Description|
 |:---|:---|:---|
-|onSuccess| |Called after recharging success|
+|onSuccess| JSONObject |Called after recharging success|
 
 
 #### 6.6. Add profile function
