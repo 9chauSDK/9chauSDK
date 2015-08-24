@@ -307,10 +307,7 @@ CuuChauSdk.logout();
 |:---|:---|:---|
 |message| String | describes **status** in detail |
 |username| String |must match with **username** 9chau server provides|
-|game_code| String |must match **game_code** 9chau server provides|
 |token|	String |must match **token** 9chau server provides|
-|error_code| String	| must match **error_code** game server provides|
-|session_key| String | must match **session_key** game server provides|
 
 If you want to get username property, you can access to **user** object by use this script: user.getString("username");
 
