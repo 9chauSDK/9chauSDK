@@ -35,7 +35,7 @@
 
 [6.6. Add profile function](#66-add-profile-function)
 
-
+[6.7. Add tracking play function] (#67-add-tracking-play-function)
 
 
 ### 1. Introduction
@@ -333,7 +333,7 @@ To show payment function, add this script to payment button click event:
 ```
 
 *Note: type of gameOrder parameter is json string.*
-*Note: type of serverID parameter is json string.*
+*Note: type of serverID parameter is string.*
 
 **Sample code:**
 
@@ -374,18 +374,15 @@ To show profile, please add this script to profile button: CuuChauSdk.showProfil
     }
 ```
 
-
-
+#### 6.7. Add tracking play function
+Please add tracking play function after player choose game server:
+```java
+ CuuChauSdk.trackingPlayFG(serverID);
+```
+*Note: type of serverID parameter is string.*
 ---
 
 
 
 ##### Version Log
-- Ver. 1.1.0 (22/06/2015)
-- Ver. 1.1.1 (24/07/2015)
-	- Added: Push Notification
-	- Fixed bugs
-- Ver. 1.2.0 (04/08/2015)
-	- Added: Solution intergrate by Eclipse
-- Ver. 1.2.1 (10/08/2015)
-	- Added: Logout function for logout in game
+- Ver. 1.1.0 (24/08/2015)
