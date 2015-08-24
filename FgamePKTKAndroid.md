@@ -193,7 +193,7 @@ An Android application cannot have multiple receivers which have the same intent
 ```
 - Add these services to application tag in your AndroidManifest.xml:
 ```java
-	        <activity
+	<activity
             android:name="com.facebook.FacebookActivity"
             android:configChanges="keyboard|keyboardHidden|screenLayout|screenSize|orientation"
             android:label="@string/app_name"
@@ -330,8 +330,8 @@ To show payment function, add this script to payment button click event:
     });
 ```
 
-*Note: type of gameOrder parameter is json string.*
-*Note: type of serverID parameter is string.*
+- *Note: type of gameOrder parameter is json string.*
+- *Note: type of serverID parameter is string.*
 
 **Sample code:**
 
