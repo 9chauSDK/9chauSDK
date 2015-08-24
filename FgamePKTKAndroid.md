@@ -23,19 +23,17 @@
 
 [6. How to integrate SDK](#6-how-to-integrate-sdk)
 
-[6.1. Import 9chauSDK by Android Studio](#61-import-9chausdk-by-android-studio-recommended)
+[6.1. Import 9chauSDK by Eclipse](#61-import-9chausdk-by-eclipse)
 
-[6.2. Import 9chauSDK by Eclipse](#62-import-9chausdk-by-eclipse)
+[6.2. Initialize SDK](#62-initialize-sdk)
 
-[6.3. Initialize SDK](#63-initialize-sdk)
+[6.3. Add authentication function](#63-add-authentication-function)
 
-[6.4. Add authentication function](#64-add-authentication-function)
+[6.4. Add payment function](#64-add-payment-function)
 
-[6.5. Add payment function](#65-add-payment-function)
+[6.5. Add profile function](#65-add-profile-function)
 
-[6.6. Add profile function](#66-add-profile-function)
-
-[6.7. Add tracking play function] (#67-add-tracking-play-function)
+[6.6. Add tracking play function] (#66-add-tracking-play-function)
 
 
 ### 1. Introduction
@@ -249,7 +247,7 @@ An Android application cannot have multiple receivers which have the same intent
 
 
 ```
-#### 6.3. Initialize SDK
+#### 6.2. Initialize SDK
 
 Add CuuChauSdk.sdk Initialize(this) into onCreate method in your main activity.
 
@@ -263,7 +261,7 @@ Add CuuChauSdk.sdk Initialize(this) into onCreate method in your main activity.
 	}
 ```
 
-#### 6.4. Add authentication function
+#### 6.3. Add authentication function
 
 
 	To show authentication function, add this script to your main activity, in **onCreate** method
@@ -318,7 +316,7 @@ CuuChauSdk.logout();
 If you want to get username property, you can access to **user** object by use this script: user.getString("username");
 
 
-#### 6.5. Add payment function
+#### 6.4. Add payment function
 
 
 To show payment function, add this script to payment button click event:
@@ -359,7 +357,7 @@ Note: gameOrder is provided by game application when show payment view, and we r
 |onSuccess| JSONObject |Called after recharging success|
 
 
-#### 6.6. Add profile function
+#### 6.5. Add profile function
 
 To show profile, please add this script to profile button: CuuChauSdk.showProfilePanel();
 
@@ -374,7 +372,7 @@ To show profile, please add this script to profile button: CuuChauSdk.showProfil
     }
 ```
 
-#### 6.7. Add tracking play function
+#### 6.6. Add tracking play function
 Please add tracking play function after player choose game server:
 ```java
  CuuChauSdk.trackingPlayFG(serverID);
