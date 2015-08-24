@@ -103,100 +103,7 @@ Please make sure development environment and your game meet the following requir
 
 
 ### 6. How to integrate SDK
-
-#### 6.1. Import 9chauSDK by Android Studio (Recommended)
-##### 1.	On **Android Studio**, select **File menu** -> **New** -> **New Module** -> Choose **Module Type is Phone and Tablet Application**, choose **More Modules** is Import .JAR or .AAR Package and click Next button -> In File Name input field, click browse button and choose SDK .AAR  file we sent. In Subproject name input field, typing **9chauSDK** and click Finish button.
-
-##### 2.	Update your game app build.grandle by adding dependencies at bottom file:
-```java
-	dependencies {
-		compile fileTree(dir: 'libs', include: ['*.jar'])
-		compile 'com.android.support:appcompat-v7:22.1.1'
-		compile project(':9chauSDK')
-		compile 'com.facebook.android:facebook-android-sdk:4.0.0'
-		compile 'com.mcxiaoke.volley:library:1.0.+'
-		compile 'com.google.android.gms:play-services:7.5.+'
-	}
-
-```
-
-##### 3.	Config project
-
-Add exact this meta-data into your **AndroidManifest.xml**:
-
-```java
-    	<meta-data android:name="game_code" android:value="{YOUR_GAME_CODE}" />
-```
-
-Note: {your_game_code} is provided by us
-
-##### 4.	Add new BroadcastReceiver
-
-
-An Android application cannot have multiple receivers which have the same intent-filtered action. If you want have more than one INSTALL_REFFERER receiver, you must make the proxy receiver like this:
-
-- Remove all INSTALL_REFERRER receiver.
-- Add this receiver into your **AndroidManifest.xml**
-
-```java
-	<receiver
-	    android:name="{your_package_name}.tracking.Install"
-	    android:exported="true" >
-	    <intent-filter>
-	        <action android:name="com.android.vending.INSTALL_REFERRER" />
-	    </intent-filter>
-	</receiver>
-	<receiver android:name="com.parse.GcmBroadcastReceiver"
-	    android:permission="com.google.android.c2dm.permission.SEND">
-	    <intent-filter>
-	        <action android:name="com.google.android.c2dm.intent.RECEIVE" />
-	        <action android:name="com.google.android.c2dm.intent.REGISTRATION" />
-	
-	        <category android:name="{your_package_name}" />
-	    </intent-filter>
-	</receiver>
-```
-
-- Add this permission to your **AndroidManifest.xml**:
-
-```java
-    	<permission android:protectionLevel="signature"   android:name="{your_package_name}.permission.C2D_MESSAGE" />
-    	<uses-permission android:name="{your_package_name}.permission.C2D_MESSAGE" />
-```
-- In Your AndroidManifest.xml, set attribute "android:name" of tag
-
-```java
-<application to ".YourGameApplication" :
-	<application
-    		android:name=".YourGameApplication">
-```
-
-- Create class **YourGameApplication** :
-
-```java
-	public class YourGameApplication extends SdkApplication {
-	    @Override
-	    public void onCreate() {
-	        super.onCreate();
-	    }
-	}
-```
-
-- Create package name is **tracking**, then create **Install.java** in this package:
-    
-```java
-	public class Install extends BroadcastReceiver {
-	    @Override
-	    public void onReceive(Context context, Intent intent) {
-	        com.cuuchau.sdk9chau.tracking.InstallationReceiver installationReceiver = new com.cuuchau.sdk9chau.tracking.InstallationReceiver();
-	        installationReceiver.onReceive(context,intent);
-	
-	
-		// your code here
-	    }
-	}
-```
-#### 6.2. Import 9chauSDK By Eclipse
+#### 6.1. Import 9chauSDK By Eclipse
 ##### 1.	Download **eclipse_9chausdk.zip** to your computer and extract it.
 ##### 2.	Import the library project into your Eclipse workspace. Click **File** > **Import**, select **Android** > **Existing Android Code into Workspace**, and browse to the library folder you extracted to import it: 
 ![Alt text](http://i.imgur.com/OvSpAzm.png?1 "For Eclipse")
@@ -239,7 +146,7 @@ Add exact these config into **application** tag in your **AndroidManifest.xml**:
       	<service android:name="com.parse.PushService" />
 
 ```
-Note: {your_game_code} is provided by us
+Note: {your_game_code} is fgame-pk-truyen-ky
 
 ##### 5. 	Add new BroadcastReceiver 
 
