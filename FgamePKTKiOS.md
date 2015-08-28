@@ -4,6 +4,8 @@
 
 #### Table of Contents
 
+[0. Requirements](#0-requirements)
+
 [1. Import 9chauSDK](#1-import-9chausdk)
 
 [2. Import the important frameworks](#2-import-the-important-frameworks)
@@ -22,6 +24,13 @@
 
 [9. Add tracking play function](#9-add-tracking-play-function)
 
+### 0. Requirements
+
+##### 0.1. Development Environment
+
+- Tool: using Xcode is the best.
+- Minimum Deployment target: iOS 6.0.
+- 
 
 ### 1. Import 9chauSDK
 
