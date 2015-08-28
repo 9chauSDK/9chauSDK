@@ -164,8 +164,8 @@ If you want to get username property, you can access to **user** object by use t
 ```objc
 	[EWay showRechargePanelWithGameOrder:(NSString *)gameOrder serverId:(NSString *)serverId andCompletedBlock:^{
         	//if recharging is success
-	//your code here, action to processing in your game (example: adding money for users)
-    	}];
+        	//your code here, action to processing in your game (example: adding money for users)
+	}];
 ```
 
 Note 1: **gameOrder** is provided by game application when show payment view, and we return it into your game server ( by your API ) after recharge successfully.
