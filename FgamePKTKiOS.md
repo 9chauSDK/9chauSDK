@@ -58,7 +58,7 @@ and the result after importing in Xcode:
 ##### 3.2. Add game_code property:
 - Key: **game_code**
 - Type: **String**
-- Value: **your_game_code**
+- Value: **your_game_code** (fgame-pk-truyen-ky)
 
 ![Alt text](http://i.imgur.com/BRNLOjY.png "")
 
@@ -94,46 +94,30 @@ and the result after importing in Xcode:
 
 ![Alt text](http://i.imgur.com/d26cIAL.png "")
 
-### 6. Prepare for using CuuChauSDK
+### 5. Prepare for using CuuChauSDK
 
+To user the functions in CuuChauSDK, you need to conenct your AppDelegate to the EWayApplicationDelegate. Please follows the below guide step-by-step:
 
-##### 6.1. Open file AppDelegate.m
+##### 5.1. Open file AppDelegate.m
 
-##### 6.2. Import Eway.h header: 
+##### 5.2. Import Eway.h header: 
 
 ```objc
 	#import "EWay.h"
 ```
-##### 6.3. Replace content in function:
+##### 5.3. In your ```objc AppDelegate.m ``` add:
 
-```objc
-	- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {} 
-```
+#### 5.3.1
 
-with the statement:
+![Alt text](http://i.imgur.com/0BzptVp.png?1 "")
 
-```objc
-	return [EWay application:application didFinishLaunchingWithOptions:launchOptions];
-```
+#### 5.3.2
 
-##### 6.4. Replace content in function:
+![Alt text](http://i.imgur.com/VIsAjk3.png "")
 
-```objc
-	- (void)applicationDidBecomeActive:(UIApplication *)application {} 
-```
-with the statement:
+#### 5.3.3
 
-```objc
-	return [EWay activeApp];
-```
-
-##### 6.5. Add new function:
-
-```objc
-	- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
-	    return [EWay application:application openURL:url sourceApplication:sourceApplication annotation:annotation];
-	}
-```
+![Alt text](http://i.imgur.com/nXPiaE8.png "")
 
 ### 7. Add authentication function
 
