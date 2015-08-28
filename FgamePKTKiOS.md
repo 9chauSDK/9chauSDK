@@ -105,34 +105,34 @@ To user the functions in CuuChauSDK, you need to conenct your AppDelegate to the
 ```objc
 	#import "EWay.h"
 ```
-##### 5.3. In your ```objc AppDelegate.m ``` add:
+##### 5.3. In your ***AppDelegate.m*** add:
 
-#### 5.3.1
+#### 5.3.1.
 
 ![Alt text](http://i.imgur.com/0BzptVp.png?1 "")
 
-#### 5.3.2
+#### 5.3.2.
 
 ![Alt text](http://i.imgur.com/VIsAjk3.png "")
 
-#### 5.3.3
+#### 5.3.3.
 
 ![Alt text](http://i.imgur.com/nXPiaE8.png "")
 
-### 7. Add authentication function
+### 6. Add authentication function
 
-##### 7.1. Import the header file Eway.h:
+##### 6.1. Import the header file Eway.h:
 
 ```objc
 	#import "EWay.h"
 ```
 
-##### 7.2. To show authentication function, use this script:
+##### 6.2. To show authentication function, use this script:
 
 ```objc
 	[EWay authorizeWithCompleted:^(EWayUser *user, NSError *error) {
 		if(!error) {
-	     		//if success, your code here      
+	     		//if authentication is success, your code here      
 		} else {
 	        	//if error, your code here
 		}
@@ -151,7 +151,31 @@ To user the functions in CuuChauSDK, you need to conenct your AppDelegate to the
 
 If you want to get username property, you can access to **user** object by use this script: user.username;
 
-### 8. Add payment function
+### 7. Add payment function
+
+##### 7.1. Import the header file Eway.h:
+
+```objc
+	#import "EWay.h"
+```
+
+##### 7.2. To show payment function, use this script to payment button:
+
+```objc
+	[EWay showRechargePanelWithGameOrder:(NSString *)gameOrder serverId:(NSString *)serverId andCompletedBlock:^{
+        	//if recharging is success
+		//your code here, action to processing in your game (example: adding money for users)
+    	}];
+```
+
+Note 1: **gameOrder** is provided by game application when show payment view, and we return it into your game server ( by your API ) after recharge successfully.
+
+Note 2: **gameOrder** is **json string**  and **optional**.
+
+Note 3: **serverId** is **string** and you must pass it in this function to identify the server that users are playing.
+
+
+### 8. Add profile function
 
 ##### 8.1. Import the header file Eway.h:
 
@@ -159,30 +183,7 @@ If you want to get username property, you can access to **user** object by use t
 	#import "EWay.h"
 ```
 
-##### 8.2. To show payment function, use this script to payment button:
-
-```objc
-	[EWay showRechargePanelWithGameOrder:(NSString *)gameOrder andCompletedBlock:^ {
-		//if recharging is success
-		//your code here to adding money for users
-	}];
-```
-
-Note: **gameOrder** is provided by game application when show payment view, and we return it into your game server ( by your API ) after recharge successfully.
-
-Note: **gameOrder** is **json string**  and **optional**.
-
-
-
-### 9. Add profile function
-
-##### 9.1. Import the header file Eway.h:
-
-```objc
-	#import "EWay.h"
-```
-
-##### 9.2. In file .m that you want to add profile button, at tag @interface implements EwayDelegate, example: 
+##### 8.2. In file .m that you want to add profile button, at tag @interface implements EwayDelegate, example: 
 
 ```objc
 	@interface ViewController ()<EWayDelegate>
@@ -190,7 +191,7 @@ Note: **gameOrder** is **json string**  and **optional**.
 	@end
 ```
 
-##### 9.3. To show profile, use this script:
+##### 8.3. To show profile, use this script:
 
 ```objc
     UIApplication *application  = [UIApplication sharedApplication];
@@ -204,11 +205,12 @@ Note: **gameOrder** is **json string**  and **optional**.
         }
     }
     
-    if ([EWay isAuthenticated]) {
+   	if ([EWay isAuthenticated]) {
 	//if authenticated, allow to show profile button
-	        [EWay setDelegate:self];
-	        [EWay addDashboardButtonInView:window atPoint:CGPointMake(25.0, 100.0) withSize:CGSizeMake(50.0, 50.0) canMove:YES];
-	} else {
+	    [EWay setDelegate:self];
+	    [EWay addDashboardButtonInView:window atPoint:CGPointMake(25.0, 100.0) withSize:CGSizeMake(50.0, 50.0) canMove:YES];
+   	} else {
 	//if not, your processing code here
 	}
 ```
+
