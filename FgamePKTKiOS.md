@@ -1,4 +1,4 @@
-# How to integrate IOS SDK
+# How to integrate 9Chau IOS SDK for PKTK Game
 
 ##### Ver. 1.1.0 (28/08/2015)
 
@@ -19,6 +19,8 @@
 [7. Add payment function](#7-add-payment-function)
 
 [8. Add profile function](#8-add-profile-function)
+
+[9. Add tracking play function](#9-add-tracking-play-function)
 
 
 ### 1. Import 9chauSDK
@@ -214,3 +216,22 @@ Note 3: **serverId** is **string** and you must pass it in this function to iden
 	}
 ```
 
+### 9. Add tracking play function
+
+Please add tracking play function after user choose game server:
+
+##### 9.1. Import the header file Eway.h:
+
+```objc
+	#import "EWay.h"
+```
+
+##### 9.2. To tracking player, use this script:
+
+```objc
+	[EWay trackingPlayWithServerId:(NSString *)serverId andCompletedBlock:^{
+            
+        }];
+```
+
+Note: **serverId** is **string**.
