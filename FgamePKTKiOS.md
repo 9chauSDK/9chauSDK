@@ -47,7 +47,7 @@ and the result after importing in Xcode:
 
 ##### 2.2. Drag *Frameworks* folder in to your project in Xcode and choose options as *step 1*, and the result like that:
  
-![Alt text](hhttp://i.imgur.com/9zU4ryC.png "")
+![Alt text](http://i.imgur.com/9zU4ryC.png "")
 
 ### 4. Config project properties
 
