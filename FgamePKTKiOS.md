@@ -43,11 +43,11 @@ and the result after importing in Xcode:
 
 ##### 2.1. In folder *CuuChauSDK* extracted before, copy the children folder named *Frameworks* to your project folder as below:
 
-![Alt text](http://i.imgur.com/pVVaWJB.png "")
+![Alt text](http://i.imgur.com/q8SA02Z.png?1 "")
 
-##### 2.2. Drag Frameworks folder in to your project in Xcode and choose options as *step 1*, and the result like that:
+##### 2.2. Drag *Frameworks* folder in to your project in Xcode and choose options as *step 1*, and the result like that:
  
-![Alt text](http://i.imgur.com/Ea2poqL.png "")
+![Alt text](hhttp://i.imgur.com/9zU4ryC.png "")
 
 ### 4. Config project properties
 
