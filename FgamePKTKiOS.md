@@ -30,7 +30,6 @@
 
 - Tool: using Xcode is the best.
 - Minimum Deployment target: iOS 6.0.
-- 
 
 ### 1. Import 9chauSDK
 
