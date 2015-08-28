@@ -206,11 +206,11 @@ Note 3: **serverId** is **string** and you must pass it in this function to iden
     }
     
    	if ([EWay isAuthenticated]) {
-	//if authenticated, allow to show profile button
+		//if authenticated, allow to show profile button
 	    [EWay setDelegate:self];
 	    [EWay addDashboardButtonInView:window atPoint:CGPointMake(25.0, 100.0) withSize:CGSizeMake(50.0, 50.0) canMove:YES];
    	} else {
-	//if not, your processing code here
+		//if not, your processing code here
 	}
 ```
 
