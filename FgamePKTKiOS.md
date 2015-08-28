@@ -216,6 +216,16 @@ Note 3: **serverId** is **string** and you must pass it in this function to iden
 	}
 ```
 
+##### 8.4. And if you want to use 9Chau logout function, in this file, implement the below function:
+
+```objc
+
+	- (void)eWayDidSignOut {
+		//your code here to processing log out
+	}
+
+```
+
 ### 9. Add tracking play function
 
 Please add tracking play function after user choose game server:
