@@ -49,34 +49,34 @@ and the result after importing in Xcode:
  
 ![Alt text](http://i.imgur.com/9zU4ryC.png "")
 
-### 4. Config project properties
+### 3. Config project properties
 
-##### 4.1. Click on the *DemoSDK* project in the project navigator, then select the *DemoSDK* target. Switch to the *Info tab*. Click on children tab *Custom iOS Target Properties*. Right-mouse click on any properties and choose Add Row to add those *important* properties:
+##### 3.1. Click on the *DemoSDK* project in the project navigator, then select the *DemoSDK* target. Switch to the *Info tab*. Click on children tab *Custom iOS Target Properties*. Right-mouse click on any properties and choose Add Row to add those *important* properties:
 
 ![Alt text](http://i.imgur.com/0q4Y7E6.png "")
 
-##### 4.2. Add game_code property:
+##### 3.2. Add game_code property:
 - Key: **game_code**
 - Type: **String**
 - Value: **your_game_code**
 
 ![Alt text](http://i.imgur.com/BRNLOjY.png "")
 
-##### 4.3. Add FacebookAppID property:
+##### 3.3. Add FacebookAppID property:
 - Key: **FacebookAppID**
 - Type: **String**
 - Value: **1527768420832101**
  
 ![Alt text](http://i.imgur.com/A2QZZrM.png "")
 
-##### 4.4. Add FacebookDisplayName property:
+##### 3.4. Add FacebookDisplayName property:
 - Key: **FacebookDisplayName**
 - Type: **String**
 - Value: **9chau**
 
 ![Alt text](http://i.imgur.com/nO4jleY.png "")
 
-##### 4.5. Add FacebookUrlSchemeSuffix property:
+##### 3.5. Add FacebookUrlSchemeSuffix property:
 - Key: **FacebookUrlSchemeSuffix**
 - Type: **String**
 - Value: **your_unique_scheme_suffix**
@@ -84,13 +84,13 @@ and the result after importing in Xcode:
  
 ![Alt text](http://i.imgur.com/qq1WktO.png "")
 
-### 5. Config URL types
+### 4. Config URL types
 
-##### 5.1. Click on the *DemoSDK* project in the project navigator, then select the *DemoSDK* target. Switch to the Info tab. Click on children tab *URL Types* and click on the + button:
+##### 4.1. Click on the *DemoSDK* project in the project navigator, then select the *DemoSDK* target. Switch to the Info tab. Click on children tab *URL Types* and click on the + button:
 
-![Alt text](http://i.imgur.com/nO4jleY.png "")
+![Alt text](http://i.imgur.com/UXdh7lp.png?2 "")
 
-##### 5.2. Assign URL Schemes equals *fb1527768420832101* as below:
+##### 4.2. Assign URL Schemes equals *fb1527768420832101* as below:
 
 ![Alt text](http://i.imgur.com/d26cIAL.png "")
 
