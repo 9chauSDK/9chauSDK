@@ -23,17 +23,21 @@
 
 ### 1. Import 9chauSDK
 
-##### 1.1. Extract file *CuuChauSDK.zip*, we get a folder named *CuuChauSDK*. Copy two children folders named *include* and *lib* to your project folder as below:
+##### 1.1. Extract file *CuuChauSDK.zip*, we get a folder named *CuuChauSDK*. 
 
-![Alt text](http://i.imgur.com/UHAoNaO.png "")
+![Alt text](http://i.imgur.com/nqczPxD.png?1 "")
 
-##### 1.2. Drag that folders into your project in Xcode and choose options like that:
+##### 1.2. Copy two children folders named *include* and *lib* to your project folder as below:
+
+![Alt text](http://i.imgur.com/JoZAjIL.png?1 "")
+
+##### 1.3. Drag that folders into your project in Xcode and choose options like that:
 
 ![Alt text](http://i.imgur.com/azNkyt8.png "")
 
 and the result after importing in Xcode:
 
-![Alt text](http://i.imgur.com/DbFd38W.png "")
+![Alt text](http://i.imgur.com/QdnZPGO.png "")
 
 ### 2. Import *the important frameworks*
 
