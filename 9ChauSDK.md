@@ -373,8 +373,8 @@ To show payment function, add this script to payment button click event:
 ```java
     CuuChauSdk.showRechargePanel(gameOrder, new PaymentCallback() {
         @Override
-        public void onSuccess() {
-	        // your code here
+        public void onSuccess(JSONObject paymentResponse) {
+        	// your code here
         }
     });
 ```
