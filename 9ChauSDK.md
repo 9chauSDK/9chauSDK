@@ -402,7 +402,7 @@ Note: gameOrder is provided by game application when show payment view, and we r
 
 |Methods|Parameters|Description|
 |:---|:---|:---|
-|onSuccess| |Called after recharging success|
+|onSuccess|JSONObject|Called after recharging success|
 
 
 #### 6.6. Add profile function
