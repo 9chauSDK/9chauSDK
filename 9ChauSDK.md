@@ -388,9 +388,9 @@ To show payment function, add this script to payment button click event:
     public void onClick(View v) {
         if(v.getId()== R.id.btnCharge){
             CuuChauSdk.showRechargePanel(gameOrder, new PaymentCallback() {
-                @Override
-                public void onSuccess() {
-    		        // your code here
+            	@Override
+                public void onSuccess(JSONObject paymentResponse) {
+ 			// your code here
                 }
             });
         }
