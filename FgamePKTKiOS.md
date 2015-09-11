@@ -98,7 +98,7 @@ and the result after importing in Xcode:
 
 ##### 4.1. Click on the *DemoSDK* project in the project navigator, then select the *DemoSDK* target. Switch to the Info tab. Click on children tab *URL Types* and click on the + button:
 
-![Alt text](http://i.imgur.com/UXdh7lp.png?2 "")
+![Alt text](http://i.imgur.com/6quXBzu.png?1 "")
 
 ##### 4.2. Assign URL Schemes equals *fb1015415611823872your_unique_scheme_suffix* as below:
 
