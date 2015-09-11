@@ -1,90 +1,98 @@
-# How to integrate IOS SDK
+# How to integrate 9Chau IOS SDK for PKTK Game
 
-##### Ver. 1.1.0 (11/08/2015)
+##### Ver. 1.1.0 (28/08/2015)
 
 #### Table of Contents
 
+[0. Requirements](#0-requirements)
+
 [1. Import 9chauSDK](#1-import-9chausdk)
 
-[2. Import Facebook frameworks](#2-import-facebook-frameworks)
+[2. Import the important frameworks](#2-import-the-important-frameworks)
 
-[3. Import SystemConfiguration.framework](#3-import-systemconfigurationframework)
+[3. Config project properties](#3-config-project-properties)
 
-[4. Config project properties](#4-config-project-properties)
+[4. Config URL types](#4-config-url-types)
 
-[5. Config URL types](#5-config-url-types)
+[5. Prepare for using CuuChauSDK](#5-prepare-for-using-cuuchausdk)
 
-[6. Prepare for using CuuChauSDK](#6-prepare-for-using-cuuchausdk)
+[6. Add authentication function](#6-add-authentication-function)
 
-[7. Add authentication function](#7-add-authentication-function)
+[7. Add payment function](#7-add-payment-function)
 
-[8. Add payment function](#8-add-payment-function)
+[8. Add profile function](#8-add-profile-function)
 
-[9. Add profile function](#9-add-profile-function)
+### 0. Requirements
 
+##### 0.1. Development Environment
+
+- Tool: using Xcode is the best.
+- Minimum Deployment target: iOS 6.0.
 
 ### 1. Import 9chauSDK
 
-##### 1.1. Extract file *CuuChauSDK.zip*, we get a folder named *CuuChauSDK*. Copy two children folders named *include* and *lib* to your project folder as below:
+##### 1.1. Extract file *CuuChauSDK.zip*, we get a folder named *CuuChauSDK*. 
 
-![Alt text](http://i.imgur.com/UHAoNaO.png "")
+![Alt text](http://i.imgur.com/nqczPxD.png?1 "")
 
-##### 1.2. Drag that folders into your project in Xcode and choose options like that:
+##### 1.2. Copy two children folders named *include* and *lib* to your project folder as below:
+
+![Alt text](http://i.imgur.com/JoZAjIL.png?1 "")
+
+##### 1.3. Drag that folders into your project in Xcode and choose options like that:
 
 ![Alt text](http://i.imgur.com/azNkyt8.png "")
 
 and the result after importing in Xcode:
 
-![Alt text](http://i.imgur.com/DbFd38W.png "")
+![Alt text](http://i.imgur.com/QdnZPGO.png "")
 
-### 2. Import *Facebook frameworks*
+### 2. Import *the important frameworks*
 
-##### 2.1. In folder *CuuChauSDK* extracted before, copy the children folder named Frameworks to your project folder as below:
+##### 2.1. In folder *CuuChauSDK* extracted before, copy the children folder named *Frameworks* to your project folder as below:
 
-![Alt text](http://i.imgur.com/pVVaWJB.png "")
+![Alt text](http://i.imgur.com/q8SA02Z.png?1 "")
 
-##### 2.2. Drag Frameworks folder in to your project in Xcode and choose options as *step 1*, and the result like that:
+##### 2.2. Drag *Frameworks* folder in to your project in Xcode and choose options as *step 1*, and the result like that:
  
 ![Alt text](http://i.imgur.com/Ea2poqL.png "")
 
-### 3. Import *SystemConfiguration.framework*
-
-##### 3.1. Click on the *DemoSDK* project in the project navigator, then select the *DemoSDK* target. Switch to the *Build Phases* tab. Click on children tab *Link Binary With Libraries* and click on the + button, as shown below:
+##### 2.3. Click on the *DemoSDK* project in the project navigator, then select the *DemoSDK* target. Switch to the *Build Phases* tab. Click on children tab *Link Binary With Libraries* and click on the + button, as shown below:
  
 ![Alt text](http://i.imgur.com/LXuBNpt.png "")
 
-##### 3.2. A popup is shown and search *SystemConfiguration.framework*, click on *SystemConfiguration.framework* and click on the Add button:
+##### 2.4. A popup is shown and search *SystemConfiguration.framework*, click on *SystemConfiguration.framework* and click on the Add button:
 
 ![Alt text](http://i.imgur.com/IMBWIQJ.png "")
 
-### 4. Config project properties
+### 3. Config project properties
 
-##### 4.1. Click on the *DemoSDK* project in the project navigator, then select the *DemoSDK* target. Switch to the *Info tab*. Click on children tab *Custom iOS Target Properties*. Right-mouse click on any properties and choose Add Row to add those *important* properties:
+##### 3.1. Click on the *DemoSDK* project in the project navigator, then select the *DemoSDK* target. Switch to the *Info tab*. Click on children tab *Custom iOS Target Properties*. Right-mouse click on any properties and choose Add Row to add those *important* properties:
 
 ![Alt text](http://i.imgur.com/0q4Y7E6.png "")
 
-##### 4.2. Add game_code property:
+##### 3.2. Add game_code property:
 - Key: **game_code**
 - Type: **String**
 - Value: **your_game_code**
 
 ![Alt text](http://i.imgur.com/BRNLOjY.png "")
 
-##### 4.3. Add FacebookAppID property:
+##### 3.3. Add FacebookAppID property:
 - Key: **FacebookAppID**
 - Type: **String**
-- Value: **1527768420832101**
+- Value: **1015415611823872**
  
 ![Alt text](http://i.imgur.com/A2QZZrM.png "")
 
-##### 4.4. Add FacebookDisplayName property:
+##### 3.4. Add FacebookDisplayName property:
 - Key: **FacebookDisplayName**
 - Type: **String**
 - Value: **9chau**
 
 ![Alt text](http://i.imgur.com/nO4jleY.png "")
 
-##### 4.5. Add FacebookUrlSchemeSuffix property:
+##### 3.5. Add FacebookUrlSchemeSuffix property:
 - Key: **FacebookUrlSchemeSuffix**
 - Type: **String**
 - Value: **your_unique_scheme_suffix**
@@ -92,71 +100,55 @@ and the result after importing in Xcode:
  
 ![Alt text](http://i.imgur.com/qq1WktO.png "")
 
-### 5. Config URL types
+### 4. Config URL types
 
-##### 5.1. Click on the *DemoSDK* project in the project navigator, then select the *DemoSDK* target. Switch to the Info tab. Click on children tab *URL Types* and click on the + button:
+##### 4.1. Click on the *DemoSDK* project in the project navigator, then select the *DemoSDK* target. Switch to the Info tab. Click on children tab *URL Types* and click on the + button:
 
-![Alt text](http://i.imgur.com/nO4jleY.png "")
+![Alt text](http://i.imgur.com/UXdh7lp.png?2 "")
 
-##### 5.2. Assign URL Schemes equals *fb1527768420832101* as below:
+##### 4.2. Assign URL Schemes equals *fb1015415611823872your_unique_scheme_suffix* as below:
 
-![Alt text](http://i.imgur.com/d26cIAL.png "")
+![Alt text](http://i.imgur.com/6quXBzu.png?1 "")
 
-### 6. Prepare for using CuuChauSDK
+### 5. Prepare for using CuuChauSDK
 
+To user the functions in CuuChauSDK, you need to conenct your AppDelegate to the EWayApplicationDelegate. Please follows the below guide step-by-step:
 
-##### 6.1. Open file AppDelegate.m
+##### 5.1. Open file AppDelegate.m
 
-##### 6.2. Import Eway.h header: 
+##### 5.2. Import Eway.h header: 
 
 ```objc
 	#import "EWay.h"
 ```
-##### 6.3. Replace content in function:
+##### 5.3. In your ***AppDelegate.m*** add:
 
-```objc
-	- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {} 
-```
+#### 5.3.1.
 
-with the statement:
+![Alt text](http://i.imgur.com/0BzptVp.png?1 "")
 
-```objc
-	return [EWay application:application didFinishLaunchingWithOptions:launchOptions];
-```
+#### 5.3.2.
 
-##### 6.4. Replace content in function:
+![Alt text](http://i.imgur.com/VIsAjk3.png "")
 
-```objc
-	- (void)applicationDidBecomeActive:(UIApplication *)application {} 
-```
-with the statement:
+#### 5.3.3.
 
-```objc
-	return [EWay activeApp];
-```
+![Alt text](http://i.imgur.com/nXPiaE8.png "")
 
-##### 6.5. Add new function:
+### 6. Add authentication function
 
-```objc
-	- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
-	    return [EWay application:application openURL:url sourceApplication:sourceApplication annotation:annotation];
-	}
-```
-
-### 7. Add authentication function
-
-##### 7.1. Import the header file Eway.h:
+##### 6.1. Import the header file Eway.h:
 
 ```objc
 	#import "EWay.h"
 ```
 
-##### 7.2. To show authentication function, use this script:
+##### 6.2. To show authentication function, use this script:
 
 ```objc
 	[EWay authorizeWithCompleted:^(EWayUser *user, NSError *error) {
 		if(!error) {
-	     		//if success, your code here      
+	     		//if authentication is success, your code here      
 		} else {
 	        	//if error, your code here
 		}
@@ -175,7 +167,31 @@ with the statement:
 
 If you want to get username property, you can access to **user** object by use this script: user.username;
 
-### 8. Add payment function
+### 7. Add payment function
+
+##### 7.1. Import the header file Eway.h:
+
+```objc
+	#import "EWay.h"
+```
+
+##### 7.2. To show payment function, use this script to payment button:
+
+```objc
+	[EWay showRechargePanelWithGameOrder:(NSString *)gameOrder serverId:(NSString *)serverId andCompletedBlock:^{
+		//if recharging is success
+		//your code here, action to processing in your game (example: adding money for users)
+	}];
+```
+
+Note 1: **gameOrder** is provided by game application when show payment view, and we return it into your game server ( by your API ) after recharge successfully.
+
+Note 2: **gameOrder** is **json string**  and **optional**.
+
+Note 3: **serverId** is **string** and you must pass it in this function to identify the server that users are playing.
+
+
+### 8. Add profile function
 
 ##### 8.1. Import the header file Eway.h:
 
@@ -183,30 +199,7 @@ If you want to get username property, you can access to **user** object by use t
 	#import "EWay.h"
 ```
 
-##### 8.2. To show payment function, use this script to payment button:
-
-```objc
-	[EWay showRechargePanelWithGameOrder:(NSString *)gameOrder andCompletedBlock:^ {
-		//if recharging is success
-		//your code here to adding money for users
-	}];
-```
-
-Note: **gameOrder** is provided by game application when show payment view, and we return it into your game server ( by your API ) after recharge successfully.
-
-Note: **gameOrder** is **json string**  and **optional**.
-
-
-
-### 9. Add profile function
-
-##### 9.1. Import the header file Eway.h:
-
-```objc
-	#import "EWay.h"
-```
-
-##### 9.2. In file .m that you want to add profile button, at tag @interface implements EwayDelegate, example: 
+##### 8.2. In file .m that you want to add profile button, at tag @interface implements EwayDelegate, example: 
 
 ```objc
 	@interface ViewController ()<EWayDelegate>
@@ -214,7 +207,7 @@ Note: **gameOrder** is **json string**  and **optional**.
 	@end
 ```
 
-##### 9.3. To show profile, use this script:
+##### 8.3. To show profile, use this script:
 
 ```objc
     UIApplication *application  = [UIApplication sharedApplication];
@@ -228,11 +221,21 @@ Note: **gameOrder** is **json string**  and **optional**.
         }
     }
     
-    if ([EWay isAuthenticated]) {
-	//if authenticated, allow to show profile button
-	        [EWay setDelegate:self];
-	        [EWay addDashboardButtonInView:window atPoint:CGPointMake(25.0, 100.0) withSize:CGSizeMake(50.0, 50.0) canMove:YES];
-	} else {
-	//if not, your processing code here
+   	if ([EWay isAuthenticated]) {
+		//if authenticated, allow to show profile button
+	    [EWay setDelegate:self];
+	    [EWay addDashboardButtonInView:window atPoint:CGPointMake(25.0, 100.0) withSize:CGSizeMake(50.0, 50.0) canMove:YES];
+   	} else {
+		//if not, your processing code here
 	}
+```
+
+##### 8.4. And if you want to use 9Chau logout function, in this file, implement the below function:
+
+```objc
+
+	- (void)eWayDidSignOut {
+		//your code here to processing log out
+	}
+
 ```
