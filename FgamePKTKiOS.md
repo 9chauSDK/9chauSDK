@@ -75,7 +75,7 @@ and the result after importing in Xcode:
 ##### 3.3. Add FacebookAppID property:
 - Key: **FacebookAppID**
 - Type: **String**
-- Value: **1527768420832101**
+- Value: **1015415611823872**
  
 ![Alt text](http://i.imgur.com/A2QZZrM.png "")
 
@@ -100,7 +100,7 @@ and the result after importing in Xcode:
 
 ![Alt text](http://i.imgur.com/UXdh7lp.png?2 "")
 
-##### 4.2. Assign URL Schemes equals *fb1527768420832101* as below:
+##### 4.2. Assign URL Schemes equals *fb1015415611823872your_unique_scheme_suffix* as below:
 
 ![Alt text](http://i.imgur.com/d26cIAL.png "")
 
