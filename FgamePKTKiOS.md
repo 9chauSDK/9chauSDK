@@ -59,6 +59,14 @@ and the result after importing in Xcode:
  
 ![Alt text](http://i.imgur.com/9zU4ryC.png "")
 
+##### 2.3. Click on the *DemoSDK* project in the project navigator, then select the *DemoSDK* target. Switch to the *Build Phases* tab. Click on children tab *Link Binary With Libraries* and click on the + button, as shown below:
+ 
+![Alt text](http://i.imgur.com/LXuBNpt.png "")
+
+##### 2.4. A popup is shown and search *SystemConfiguration.framework*, click on *SystemConfiguration.framework* and click on the Add button:
+
+![Alt text](http://i.imgur.com/IMBWIQJ.png "")
+
 ### 3. Config project properties
 
 ##### 3.1. Click on the *DemoSDK* project in the project navigator, then select the *DemoSDK* target. Switch to the *Info tab*. Click on children tab *Custom iOS Target Properties*. Right-mouse click on any properties and choose Add Row to add those *important* properties:
