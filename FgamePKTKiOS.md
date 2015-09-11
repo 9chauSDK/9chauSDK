@@ -57,7 +57,7 @@ and the result after importing in Xcode:
 
 ##### 2.2. Drag *Frameworks* folder in to your project in Xcode and choose options as *step 1*, and the result like that:
  
-![Alt text](http://i.imgur.com/9zU4ryC.png "")
+![Alt text](http://i.imgur.com/Ea2poqL.png "")
 
 ##### 2.3. Click on the *DemoSDK* project in the project navigator, then select the *DemoSDK* target. Switch to the *Build Phases* tab. Click on children tab *Link Binary With Libraries* and click on the + button, as shown below:
  
