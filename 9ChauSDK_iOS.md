@@ -67,6 +67,10 @@ and the result after importing in Xcode:
 
 ### 3. Config project properties
 
+To use the functions in CuuChauSDK fully, at the **Other Linker Flags** property in **Build Settings** tab of **DemoSDK** target, you **must** add the below value:
+- If your project based on C++, add **-force_load (path_to_CuuChauSDK_in_your_project)**
+- If based on ObjC, add **-ObjC**
+
 ##### 3.1. Click on the *DemoSDK* project in the project navigator, then select the *DemoSDK* target. Switch to the *Info tab*. Click on children tab *Custom iOS Target Properties*. Right-mouse click on any properties and choose Add Row to add those *important* properties:
 
 ![Alt text](http://i.imgur.com/0q4Y7E6.png "")
